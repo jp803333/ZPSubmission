@@ -13,5 +13,9 @@ services:
     ports:
       - "27017:27017"
     environment:
+      MONGO_INITDB_DATABASE: ZupayTodo
       MONGO_INITDB_ROOT_USERNAME: admin
       MONGO_INITDB_ROOT_PASSWORD: 1234
+    volumes:
+      - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo-js:ro
+      - ./mongo-data:/data/db
